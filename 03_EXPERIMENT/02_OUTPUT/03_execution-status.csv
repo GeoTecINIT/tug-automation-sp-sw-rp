@@ -1,0 +1,7 @@
+system,status,counts
+C1,failure,6
+C1,partial_success,16
+C1,success,269
+C2,failure,48
+C2,partial_success,7
+C2,success,236
