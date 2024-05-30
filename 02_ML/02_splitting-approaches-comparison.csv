@@ -1,9 +1,9 @@
 source,metric,turning_sitting,turn_to_sit,two-tailed test
-sw,accuracy,0.848,0.809,"t(198)=13.459315696940894, p-val=0.0"
-sw,f1-turning,0.795,0.565,"t(198)=44.34041443328367, p-val=0.0"
+sw,accuracy,0.848,0.809,"t(198)=13.459315696940894, p-val=0.0, power=1.0"
+sw,f1-turning,0.795,0.565,"t(198)=44.34041443328367, p-val=0.0, power=1.0"
 sw,f1-sitting-down,0.804,-,-
 sw,f1-turn_to_sit,-,0.735,-
-sp,accuracy,0.857,0.789,"U=9036.0, p-val=0.0"
-sp,f1-turning,0.846,0.529,"t(198)=57.06501597390656, p-val=0.0"
+sp,accuracy,0.857,0.789,"U=9036.0, p-val=0.0, power=1"
+sp,f1-turning,0.846,0.529,"t(198)=57.06501597390656, p-val=0.0, power=1.0"
 sp,f1-sitting-down,0.753,-,-
 sp,f1-turn_to_sit,-,0.655,-
