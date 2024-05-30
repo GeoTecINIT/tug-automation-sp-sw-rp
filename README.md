@@ -43,7 +43,8 @@ docker run -it -p 8888:8888 tug-automation-sp-sw-rp
 Open the desired Jupyter Notebook (*.ipynb) file. Each notebook contains the used code and its outputs. You can execute
 the code to reproduce the obtained results.
 
-> **Note**: when executing an analysis with a component of randomness (i.e., ML models training), the obtained results could be slightly different
+> [!NOTE] 
+> When executing an analysis with a component of randomness (i.e., ML models training), the obtained results could be slightly different
 than the reported ones. Notwithstanding, the conclusions should be similar as the reported ones.
 
 
@@ -58,6 +59,10 @@ Notebooks and code files:
 - [`functions`](functions/): Pythons scripts defining common functions used in the notebooks.
 - [`01_sensor-data-processing.ipynb`](./01_sensor-data-processing.ipynb): Jupyter Notebook containing all the code used for data processing. It obtains the data from [`01_SENSOR-DATA/01_RAW`](./01_SENSOR-DATA/01_RAW) and process it to clean it (stored at [`01_SENSOR-DATA/02_CLEAN`](./01_SENSOR-DATA/02_CLEAN)) and arange it as windows (stored at [`01_SENSOR-DATA/03_WINDOWED`](./01_SENSOR-DATA/03_WINDOWED)).
 - [`02_ml.ipynb`](./02_ml.ipynb): Jupyter Notebook containing all the code used for training the ML models. It loads the data from [`01_SENSOR-DATA/03_WINDOWED`](./01_SENSOR-DATA/03_WINDOWED) and uses it to compare the two activities splitting methods and to train the ML models used by the application. The models are stored in [`02_ML`](./02_ML).
+
+> [!WARNING]
+> Retraining the models might take a while. The outcomes of the contained analyses can be reproduced by loading the results in `02_ML/01_splitting-approaches-reports.json`.
+
 - [`03_experiment.ipynb`](./03_experiment.ipynb): Jupyter Notebook containing all the analysis performed. It loads the application and manual results from [`03_EXPERIMENT/01_INPUT`](./03_EXPERIMENT/01_INPUT) to analyse the reliability of the system. The output of the analysis is stored in [`03_EXPERIMENT/02_OUTPUT`](./03_EXPERIMENT/02_OUTPUT).
 - [`04_battery-consumption`](./battery-consumption.ipynb): Jupyter Notebook containing the battery consumption analysis. It loads the battery consumption records from [`04_BATTERY/00_battery-historian.csv`](./04_BATTERY/00_battery-historian.csv) to compute the consumption estimates per device and TUG execution, which are stored in [`04_BATTERY/01_battery-consumption.csv`](./04_BATTERY/01_battery-consumption.csv) 
 
@@ -72,13 +77,13 @@ Directories and data files:
     - [`01_TURNING-AND-SITTING`](./01_SENSOR-DATA/02_CLEAN/01_TURNING-AND-SITTING): the samples are labelled with the SEATED, STANDING_UP, WALKING, TURNING and SITTING_DOWN activities. Contains a directory for each subject, and each directory has a `csv` file with the labeled data corresponding to one execution. The `csv` files follow this format: `{subject_id}_{execution}_{sw|sp}.csv`
     - [`02_TURN-TO-SIT`](./01_SENSOR-DATA/02_CLEAN/02_TURN-TO-SIT): the samples are labelled with the SEATED, STANDING_UP, WALKING, TURNING and TURN-TO-SIT activities. Contains a directory for each subject, and each directory has a `csv` file with the labeled data 
     corresponding to one execution. The `csv` files follow this format: `{subject_id}_{execution}_{sw|sp}.csv`
-    - `01_sp_{acc|gyro}-boundaries.pdf`: plots containing accelerometer and gyroscope data and their associated activties. These plots correspond to the **Figure 6** of the paper.
+    - `01_sp_{acc|gyro}-boundaries.pdf`: plots containing accelerometer and gyroscope data and their associated activties. These plots correspond to the **Figure 5** of the paper.
   - [`03_WINDOWED`](./01_SENSOR-DATA/03_WINDOWED): contains the windows generated from the clean data.
     - [`01_TURNING-AND-SITTING`](./01_SENSOR-DATA/03_WINDOWED/01_TURNING-AND-SITTING): the windows are labelled with the SEATED, STANDING_UP, WALKING, TURNING and SITTING_DOWN activities. Contains a directory for each subject.
     - [`02_TURN-TO-SIT`](./01_SENSOR-DATA/03_WINDOWED/02_TURN-TO-SIT): the windows are labelled with the SEATED, STANDING_UP, WALKING, TURNING and TURN-TO-SIT activities. Contains a directory for each subject.
 - [`02_ML`](./02_ML): contains the ML models trained with the collected data. Contains:
   - [`01_splitting-approaches-reports.json`](./02_ML/01_splitting-approaches-reports.json): results from models trained with both splitting approaches.
-  - [`02_splitting-approaches-comparison.csv`](./02_ML/02_splitting-approaches-comparison.csv): comparison analysing the results of both splitting approaches. This information is reported in the **Table 2** os the paper.
+  - [`02_splitting-approaches-comparison.csv`](./02_ML/02_splitting-approaches-comparison.csv): comparison analysing the results of both splitting approaches. This information is reported in the **Table II** of the paper.
   - `03_sp_data_model.tflite`: CNN model trained with the data collected from the smartphone's sensors.
   - `03_sw_data_model.tflite`: CNN model trained with the data collected from the smartwatch's sensors.
   - `03_labels.txt`: activity labels file embedded into models as metadata.
@@ -90,18 +95,18 @@ Directories and data files:
   - [`02_OUTPUT`](./03_EXPERIMENT/02_OUTPUT): directory with the results of the analyses.
     - `01_{c1|c2|man}-results.csv`: TUG executions measurements from the system and the manual ones.
     - [`02_errors.csv`](./03_EXPERIMENT/02_OUTPUT/02_errors.csv): measurement error of each TUG execution and subphases.
-    - [`03_execution-status.csv`](./03_EXPERIMENT/02_OUTPUT/03_execution-status.csv): number of executions classified as _success_, _partial_success_ and _failure_. This information is reported in the **Table 3** of the paper.
-    - [`04_error-distribution.pdf`](./03_EXPERIMENT/02_OUTPUT/04_error-distribution.pdf): boxplot with the distribution of the measurement errors. This plot corresponds to the **Figure 7** of the paper.
+    - [`03_execution-status.csv`](./03_EXPERIMENT/02_OUTPUT/03_execution-status.csv): number of executions classified as _success_, _partial_success_ and _failure_. This information is reported in the **Table III** of the paper.
+    - [`04_error-distribution.pdf`](./03_EXPERIMENT/02_OUTPUT/04_error-distribution.pdf): boxplot with the distribution of the measurement errors. This plot corresponds to the **Figure 6** of the paper.
     - [`05_subjects-rmse.csv`](./03_EXPERIMENT/02_OUTPUT/05_subjects-rmse.csv): intra-subject measurements RMSE.
-    - [`05_comparison-rmse.csv`](./03_EXPERIMENT/02_OUTPUT/05_comparison-rmse.csv): inter-subject measurements RMSE. This information is reported in the **Table 4** of the paper.
-    - `06_{c1|c2}-duration-ba.pdf`: Bland-Altman plots of the total duration of the executions. These plots correspond to the **Figure 8** of the paper.
-    - `07_{c1|c2}-phases-ba.pdf`: Bland-Altman plots of the subphases duration of the executions. These plots correspond to the **Figure 9** of the paper.
-    - [`08_icc-results.csv`](./03_EXPERIMENT/02_OUTPUT/08_icc-results.csv): ICC<sub>(2,1)</sub> reliability metric comparing each system configuration with the manual results. This information is reported in the **Table 5** of the paper.
+    - [`05_comparison-rmse.csv`](./03_EXPERIMENT/02_OUTPUT/05_comparison-rmse.csv): inter-subject measurements RMSE. This information is reported in the **Table IV** of the paper.
+    - `06_{c1|c2}-duration-ba.pdf`: Bland-Altman plots of the total duration of the executions. These plots correspond to the **Figure 7** of the paper.
+    - `07_{c1|c2}-phases-ba.pdf`: Bland-Altman plots of the subphases duration of the executions. These plots correspond to the **Figure 8** of the paper.
+    - [`08_icc-results.csv`](./03_EXPERIMENT/02_OUTPUT/08_icc-results.csv): ICC<sub>(2,1)</sub> reliability metric comparing each system configuration with the manual results. This information is reported in the **Table V** of the paper.
 - [`04_BATTERY`](./04_BATTERY): contains the system's battery consumption information. Contains:
   - [`bug-reports`](./04_BATTERY/bug_reports): `bugreports` generated after the execution of the TUG system on the devices. The `bugreports` have the following naming 
   format: `br_{sXX[-sYY]}_{sp|sp-paired|sw}`.
   - [`00_battery-historian.csv`](./04_BATTERY/00_battery-historian.csv): battery consumption data extracted from the `bugreports`.
-  - [`01_battery-consumption.csv`](./04_BATTERY/01_battery-consumption.csv): battery consumption information processed from the Battery Historian data. This information is reported in the **Table 7** of the paper.
+  - [`01_battery-consumption.csv`](./04_BATTERY/01_battery-consumption.csv): battery consumption information processed from the Battery Historian data. This information is reported in the **Table VII** of the paper.
     
 
 ## License
@@ -110,3 +115,8 @@ The documents in this repository are licensed under [Creative Commons Attributio
 All contained code is licensed under the [Apache License 2.0](./LICENSE).
 
 All data used in this repository is licensed under [Open Data Commons Attribution License](http://opendatacommons.org/licenses/by/1.0/).
+
+
+## Acknowledgements
+
+This work has been funded by the Spanish Ministry of Universities [grants FPU19/05352 and FPU17/03832] and by the Spanish Ministry of Science and Innovation (MCIN/AEI/10.13039/501100011033) and ''ERDF A way of making Europe'' [grants PID2020-120250RB-I00, PID2022-1404475OB-C21 and PID2022-140475OB-C22]. 
