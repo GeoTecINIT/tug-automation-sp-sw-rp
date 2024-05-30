@@ -1,8 +1,8 @@
 # Reproducible Package for _"Implementing and evaluating the Timed Up and Go test automation using smartphones and smartwatches"_
 
 [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/GeoTecINIT/tug-automation-sp-sw-rp/)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/zenodo/10.5281/zenodo.7991798/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7991798.svg)](https://doi.org/10.5281/zenodo.7991798)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/zenodo/10.5281/zenodo.7991797/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7991797.svg)](https://doi.org/10.5281/zenodo.7991797)
 
 
 This repository is the reproducibility package for the _“Implementing and evaluating the Timed Up and Go test automation using smartphones and smartwatches"_ journal paper. 
