@@ -1,7 +1,7 @@
 # Reproducible Package for _"Implementing and evaluating the Timed Up and Go test automation using smartphones and smartwatches"_
 
 [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/GeoTecINIT/tug-automation-sp-sw-rp/)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/zenodo/10.5281/zenodo.7991797/)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/GeoTecINIT/tug-automation-sp-sw-rp/HEAD)
 [![Paper DOI](https://img.shields.io/badge/Paper%20DOI-10.1109%2FJBHI.2024.3456169-yellow.svg)](https://doi.org/10.1109/JBHI.2024.3456169)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7991797.svg)](https://doi.org/10.5281/zenodo.7991797)
 
