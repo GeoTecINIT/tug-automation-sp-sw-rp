@@ -9,7 +9,7 @@
 This repository is the reproducibility package for the _“Implementing and evaluating the Timed Up and Go test automation using smartphones and smartwatches"_ journal paper, published in the _IEEE Journal of Biomedical and Health Informatics_. 
 
 > M. Matey-Sanz, A. González-Pérez, S. Casteleyn and C. Granell, "Implementing and evaluating the Timed Up and Go test automation using smartphones and smartwatches", 
-> in _IEEE Journal of Biomedical and Health Informatics_, doi: 10.1109/JBHI.2024.3456169.
+> in _IEEE Journal of Biomedical and Health Informatics, 28(11), 6594-6605_, doi: 10.1109/JBHI.2024.3456169.
 
 ## Reproducibility
 
